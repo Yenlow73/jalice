@@ -1,14 +1,26 @@
-/* simpleAdder.sable - A very simple program that recognizes two integers being added. */ 
-Package simpleAdder ; 
+Package Jalice ; 
      
 Helpers 
     /* Our helpers */ 
-    digit = ['0' .. '9'] ; 
-    sp = ' ' ; 
-    nl = 10 ; 
+    numero = ['0' .. '9'] ; 
+    espaco = ' ' ; 
+    nl = 10 ;
+    letramin = ['a' .. 'z'];
+    letramax = ['A' .. 'Z'];
+    under = '_' ; 
+    barra = '/' ;
+    abreComentario = '/*' ;
+    fechaComentario = '*/' ;
+    aspa = ' ' ';
+    
   
 Tokens 
-    /* Our simple token definition(s). */ 
+	
+    letra = letramin | letramax ;
+    id = (letra | under)(letra | numero | under)* ;  
+    
+    string = aspa () aspa ;
+     
     integer = digit + sp*; 
     plus = '+' sp*; 
     semi = ';' nl?; 
