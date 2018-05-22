@@ -2,29 +2,64 @@ Package Jalice ;
      
 Helpers 
     /* Our helpers */ 
-    numero = ['0' .. '9'] ; 
-    espaco = ' ' ; 
-    nl = 10 ;
-    letramin = ['a' .. 'z'];
-    letramax = ['A' .. 'Z'];
-    under = '_' ; 
-    barra = '/' ;
-    abreComentario = '/*' ;
-    fechaComentario = '*/' ;
-    aspa = ' ' ';
-    
-  
-Tokens 
+    digito = ['0' .. '9'] ; 
+    letra = ['a' .. 'z'] | ['A' .. 'Z']; 
+	under = '_' ;
+	esp = ' ';
+	barra = '\' ;
+	aspa = ''';
+	caracter = digito | letra | under | barra ;
 	
-    letra = letramin | letramax ;
-    id = (letra | under)(letra | numero | under)* ;  
+	
+	
+Tokens
+	tipo_caractere = 'caractere' ;
+	tipo_real = 'real';
+	tipo_inteiro = 'inteiro';
+	comando_inicio = 'inicio';
+	comando_fim = 'fim';
+	se = 'se';
+	senao = 'senao';
+	enquanto = 'enquanto';
+	para = 'para';
+	avalie = 'avalie';
+	caso = 'caso';
+	verdadeiro = 'verdadeiro';
+	falso = 'falso';
+	booleano = 'booleano';
+	abre_parent = '(';
+	fecha_parent = ')';
+	dois_pontos = ':';
+	maior = '>';
+	menor = '<';
+	igual = '=';
+	menor_igual = '(menor)(igual)';
+	maior_igual = '(maior)(igual)';
+	soma = '+';
+	sub = '-';
+	multi = '*';
+	div = '/';
+	nl = 10 ;
+	p_virgula = ' ; ';
+	abre_colchete = '[';
+    fecha_colchete = ']';
+    espaco = esp+ ;
+	comentario_linha = '//+';
+	abrecomentario = '/*' ;
+    fechacomentario = '*/' ;
+    caractere = ((aspa) + (caracter | esp) + (aspa));
+    numero = digito+ ;
+    id = (letra | under)(caracter)* ;
     
-    string = aspa () aspa ;
-     
-    integer = digit + sp*; 
-    plus = '+' sp*; 
-    semi = ';' nl?; 
+Ignored Tokens
+    espaco;
   
-Productions 
+      
+    
+       
+/*Productions*/ 
     /* Our super-simple grammar */ 
-    program = [left]:integer plus [right]:integer semi;
+    /*program = [left]:integer plus [right]:integer semi;*/
+    
+    
+    
