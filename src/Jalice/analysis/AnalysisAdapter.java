@@ -69,18 +69,6 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseTAbreParent(TAbreParent node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseTFechaParent(TFechaParent node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
     public void caseTTipoCaractere(TTipoCaractere node)
     {
         defaultCase(node);
@@ -160,6 +148,18 @@ public class AnalysisAdapter implements Analysis
 
     @Override
     public void caseTBooleano(TBooleano node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTAbreParent(TAbreParent node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTFechaParent(TFechaParent node)
     {
         defaultCase(node);
     }

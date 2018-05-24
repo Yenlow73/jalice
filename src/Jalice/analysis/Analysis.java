@@ -11,8 +11,6 @@ public interface Analysis extends Switch
     Object getOut(Node node);
     void setOut(Node node, Object o);
 
-    void caseTAbreParent(TAbreParent node);
-    void caseTFechaParent(TFechaParent node);
     void caseTTipoCaractere(TTipoCaractere node);
     void caseTTipoReal(TTipoReal node);
     void caseTTipoInteiro(TTipoInteiro node);
@@ -27,6 +25,8 @@ public interface Analysis extends Switch
     void caseTVerdadeiro(TVerdadeiro node);
     void caseTFalso(TFalso node);
     void caseTBooleano(TBooleano node);
+    void caseTAbreParent(TAbreParent node);
+    void caseTFechaParent(TFechaParent node);
     void caseTDoisPontos(TDoisPontos node);
     void caseTMaior(TMaior node);
     void caseTMenor(TMenor node);
