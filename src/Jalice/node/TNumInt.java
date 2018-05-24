@@ -5,14 +5,14 @@ package Jalice.node;
 import Jalice.analysis.*;
 
 @SuppressWarnings("nls")
-public final class TNumero extends Token
+public final class TNumInt extends Token
 {
-    public TNumero(String text)
+    public TNumInt(String text)
     {
         setText(text);
     }
 
-    public TNumero(String text, int line, int pos)
+    public TNumInt(String text, int line, int pos)
     {
         setText(text);
         setLine(line);
@@ -22,12 +22,12 @@ public final class TNumero extends Token
     @Override
     public Object clone()
     {
-      return new TNumero(getText(), getLine(), getPos());
+      return new TNumInt(getText(), getLine(), getPos());
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseTNumero(this);
+        ((Analysis) sw).caseTNumInt(this);
     }
 }

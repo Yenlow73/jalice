@@ -5,16 +5,16 @@ package Jalice.node;
 import Jalice.analysis.*;
 
 @SuppressWarnings("nls")
-public final class TPVirgula extends Token
+public final class TE extends Token
 {
-    public TPVirgula()
+    public TE()
     {
-        super.setText(";");
+        super.setText("e");
     }
 
-    public TPVirgula(int line, int pos)
+    public TE(int line, int pos)
     {
-        super.setText(";");
+        super.setText("e");
         setLine(line);
         setPos(pos);
     }
@@ -22,18 +22,18 @@ public final class TPVirgula extends Token
     @Override
     public Object clone()
     {
-      return new TPVirgula(getLine(), getPos());
+      return new TE(getLine(), getPos());
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseTPVirgula(this);
+        ((Analysis) sw).caseTE(this);
     }
 
     @Override
     public void setText(@SuppressWarnings("unused") String text)
     {
-        throw new RuntimeException("Cannot change TPVirgula text.");
+        throw new RuntimeException("Cannot change TE text.");
     }
 }

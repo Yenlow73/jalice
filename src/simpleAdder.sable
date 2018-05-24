@@ -5,14 +5,17 @@ Helpers
     digito = ['0' .. '9'] ; 
     letra = ['a' .. 'z'] | ['A' .. 'Z']; 
 	under = '_' ;
-	esp = ' ';
-	barra = '\' ;
+	esp = 32;
+	tab = 9;
 	aspa = ''';
-	caracter = digito | letra | under | barra ;
-	
+	caracter_id = digito | letra | under ;
+	barra = '\' ;
 	
 	
 Tokens
+	barra_inv = barra+;
+	espaco = esp+ ;
+	tecla_tab = tab+ ;
 	tipo_caractere = 'caractere' ;
 	tipo_real = 'real';
 	tipo_inteiro = 'inteiro';
@@ -27,8 +30,12 @@ Tokens
 	verdadeiro = 'verdadeiro';
 	falso = 'falso';
 	booleano = 'booleano';
+	nao = 'nao';
+	e = 'e';
+	ou = 'ou';
 	abre_parent = '(';
 	fecha_parent = ')';
+	atribuicao = ':=';
 	dois_pontos = ':';
 	maior = '>';
 	menor = '<';
@@ -40,19 +47,20 @@ Tokens
 	multi = '*';
 	div = '/';
 	nl = 10 ;
-	p_virgula = ' ; ';
+	p_virgula = ';' ;
 	abre_colchete = '[';
     fecha_colchete = ']';
-    espaco = esp+ ;
 	comentario_linha = '//+';
 	abrecomentario = '/*' ;
     fechacomentario = '*/' ;
-    caractere = ((aspa) + (caracter | esp) + (aspa));
-    numero = digito+ ;
-    id = (letra | under)(caracter)* ;
+    caractere = ((aspa) + (caracter_id | esp) + (aspa));
+    num_int = digito+ ;
+    num_real = digito+ (',') digito+ ;
+    id = (letra | under)(caracter_id)* ;
     
 Ignored Tokens
     espaco;
+   
   
       
     

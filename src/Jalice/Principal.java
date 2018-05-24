@@ -17,7 +17,7 @@ public class Principal {
           //  Start ast = parser.parse() ; 
             Token token;
 			while(!((token = lexer.next()) instanceof EOF))
-				System.out.println(token.getClass()); 
+				System.out.println(token.toString() + " -> " + token.getClass()); 
   
             /* Get our Interpreter going. */ 
             //Interpreter interp = new Interpreter () ; 

@@ -11,6 +11,9 @@ public interface Analysis extends Switch
     Object getOut(Node node);
     void setOut(Node node, Object o);
 
+    void caseTBarraInv(TBarraInv node);
+    void caseTEspaco(TEspaco node);
+    void caseTTeclaTab(TTeclaTab node);
     void caseTTipoCaractere(TTipoCaractere node);
     void caseTTipoReal(TTipoReal node);
     void caseTTipoInteiro(TTipoInteiro node);
@@ -25,8 +28,12 @@ public interface Analysis extends Switch
     void caseTVerdadeiro(TVerdadeiro node);
     void caseTFalso(TFalso node);
     void caseTBooleano(TBooleano node);
+    void caseTNao(TNao node);
+    void caseTE(TE node);
+    void caseTOu(TOu node);
     void caseTAbreParent(TAbreParent node);
     void caseTFechaParent(TFechaParent node);
+    void caseTAtribuicao(TAtribuicao node);
     void caseTDoisPontos(TDoisPontos node);
     void caseTMaior(TMaior node);
     void caseTMenor(TMenor node);
@@ -41,12 +48,12 @@ public interface Analysis extends Switch
     void caseTPVirgula(TPVirgula node);
     void caseTAbreColchete(TAbreColchete node);
     void caseTFechaColchete(TFechaColchete node);
-    void caseTEspaco(TEspaco node);
     void caseTComentarioLinha(TComentarioLinha node);
     void caseTAbrecomentario(TAbrecomentario node);
     void caseTFechacomentario(TFechacomentario node);
     void caseTCaractere(TCaractere node);
-    void caseTNumero(TNumero node);
+    void caseTNumInt(TNumInt node);
+    void caseTNumReal(TNumReal node);
     void caseTId(TId node);
     void caseEOF(EOF node);
     void caseInvalidToken(InvalidToken node);
