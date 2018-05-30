@@ -1,4 +1,4 @@
-package principal;
+package Jalice.interpret;
 
 import Jalice.lexer.*;
 import Jalice.node.*;
@@ -82,9 +82,9 @@ public class ComentarioAninhado extends Lexer{
 	// Definimos um filtro que reconhece comentarios aninhados
 	@Override
 	protected void filter() throws LexerException{ 
-	
-		comentarioLinha();	
+		
 		comentarioBloco();
+		comentarioLinha();		
 	
 	}
 }

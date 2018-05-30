@@ -1,13 +1,13 @@
 /* Create an AST, then invoke our interpreter. */ 
 //import Jalice.parser.* ;
-package principal;
+package Jalice.interpret;
 import java.io.* ;
 
 import Jalice.lexer.*;
 import Jalice.node.*;
 
 
-public class Principal { 
+public class Main { 
 	
 	/*
 	 * Varre o arquivo de entrada e obtém um token que representa o caractere (imprime em tela).
