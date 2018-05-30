@@ -1,26 +1,33 @@
 Package Jalice ; 
      
 Helpers 
-    /* Our helpers */ 
-    digito = ['0' .. '9'] ; 
-    letra = ['a' .. 'z'] | ['A' .. 'Z']; 
+    digito = ['0' .. '9']; 
+    letra_minuscula = ['a' .. 'z'] ; 
+    letra_maiuscula = ['A' .. 'Z'] ; 
+    letra = letra_minuscula | letra_maiuscula ; 
 	under = '_' ;
-	esp = 32;
-	tab = 9;
-	aspa = ''';
-	caracter_id = digito | letra | under ;
+	esp = 32 ;
+	tab = 9 ;
+	nl = 10 ;
+	cr = 13 ;
+	aspa = ''' ;
 	barra = '\' ;
+	caracter_id = digito | letra | under ;
 	
-	
-Tokens
+Tokens	
+	comentario_bloco = '/**/';
+	abrecomentario = '/*' ;
+    fechacomentario = '*/' ;
 	barra_inv = barra+;
-	espaco = esp+ ;
-	tecla_tab = tab+ ;
-	tipo_caractere = 'caractere' ;
-	tipo_real = 'real';
-	tipo_inteiro = 'inteiro';
-	comando_inicio = 'inicio';
-	comando_fim = 'fim';
+	espaco = esp ;
+	nova_linha = (nl | cr)+;
+	tecla_tab = tab ;
+	string = 'caractere' ;
+	real = 'real';
+	inteiro = 'inteiro';
+	programa = 'programa';
+	inicio = 'inicio';
+	fimprograma = 'fim.';
 	se = 'se';
 	senao = 'senao';
 	enquanto = 'enquanto';
@@ -33,41 +40,43 @@ Tokens
 	nao = 'nao';
 	e = 'e';
 	ou = 'ou';
-	abre_parent = '(';
-	fecha_parent = ')';
-	atribuicao = ':=';
-	dois_pontos = ':';
+	a_parentese = '(';
+	f_parentese = ')';
+	atrib = '<-';
+	doispontos = ':';
 	maior = '>';
-	menor = '<';
+	menorq = '<';
+	diferente = '<>';
 	igual = '=';
 	menor_igual = '(menor)(igual)';
 	maior_igual = '(maior)(igual)';
-	soma = '+';
-	sub = '-';
+	mais = '+';
+	menos = '-';
 	multi = '*';
 	div = '/';
-	nl = 10 ;
-	p_virgula = ';' ;
+	virg = ',';
+	pontoevirg = ';' ;
 	abre_colchete = '[';
     fecha_colchete = ']';
 	comentario_linha = '//+';
-	abrecomentario = '/*' ;
-    fechacomentario = '*/' ;
-    caractere = ((aspa) + (caracter_id | esp) + (aspa));
-    num_int = digito+ ;
+    char = ((aspa) + (caracter_id | esp) + (aspa));
+    num = digito+ ;
     num_real = digito+ (',') digito+ ;
-    id = (letra | under)(caracter_id)* ;
+    leia = 'leia';
+    escreva = 'escreva';
+    id = (letra | under)(caracter_id)* ; 
     
 Ignored Tokens
-    espaco;
-   
-  
-      
-    
+    espaco, tecla_tab, nova_linha;
        
-/*Productions*/ 
-    /* Our super-simple grammar */ 
-    /*program = [left]:integer plus [right]:integer semi;*/
+Productions
+    gramatica = programa id inicio declaracao? fimprograma;
+    
+    declaracao = {inteiro} inteiro doispontos id declnum* pontoevirg |
+    			{real} real doispontos id declnum* pontoevirg;
+    
+    declnum = virg id;
+    
     
     
     

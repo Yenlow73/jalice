@@ -1,0 +1,21 @@
+Entrada:
+
+/* // */
+
+/*  */
+
+/*
+
+*/
+*/
+
+Saída:
+
+
+
+TComentarioBloco
+
+TComentarioBloco
+
+TComentarioBloco
+ Erro de comentario de bloco. Linha: 10, posicao: 1. : TComentarioBlocoFimErrado
